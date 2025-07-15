@@ -6,7 +6,7 @@ A Streamlit web application that allows users to upload a text document and ask 
 
 ## 🚀 Project Description
 
-This project is an interactive web app that leverages the power of Large Language Models (LLMs) and vector search to answer questions about the content of any uploaded `.txt` document. It uses the RAG (Retrieval-Augmented Generation) approach, combining document retrieval with generative AI to provide accurate, context-aware answers.
+This project is an interactive web app that leverages the power of Large Language Models (LLMs) and vector search to answer questions about the content of any uploaded text document. It uses the RAG (Retrieval-Augmented Generation) approach, combining document retrieval with generative AI to provide accurate, context-aware answers.
 
 ---
 
@@ -20,7 +20,6 @@ This project is an interactive web app that leverages the power of Large Languag
 - **python-dotenv**: For managing API keys securely.
 
 ---
-
 ## 🛠️ Setup Instructions
 
 1. **Clone the repository**
@@ -85,7 +84,8 @@ This project is an interactive web app that leverages the power of Large Languag
 - `data.txt`, `temp_doc_data.txt` — Example data files.
 
 ---
-
+## Sample Output
+![Alt text for the image](https://github.com/wassupjay/Doc-QnA-with-RAGimages/screenshot.png)
 ## 🙏 Credits
 
 - Built with [Streamlit](https://streamlit.io/), [LangChain](https://langchain.com/), [Chroma](https://www.trychroma.com/), and [OpenAI](https://openai.com/).
