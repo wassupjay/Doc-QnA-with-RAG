@@ -25,7 +25,7 @@ This project is an interactive web app that leverages the power of Large Languag
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone <https://github.com/wassupjay/Doc-QnA-with-RAG>
    cd Doc-QnA
    ```
 
