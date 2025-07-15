@@ -85,7 +85,7 @@ This project is an interactive web app that leverages the power of Large Languag
 
 ---
 ## Sample Output
-![Alt text for the image](https://github.com/wassupjay/Doc-QnA-with-RAGimages/screenshot.png)
+![Alt text for the image](https://github.com/wassupjay/Doc-QnA-with-RAG/blob/main/images/screenshot.png)
 ## 🙏 Credits
 
 - Built with [Streamlit](https://streamlit.io/), [LangChain](https://langchain.com/), [Chroma](https://www.trychroma.com/), and [OpenAI](https://openai.com/).
