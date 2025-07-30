@@ -12,7 +12,7 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(page_title="Document Q&A with RAG", layout="centered")
-st.title("📄 Document Q&A App")
+st.title(" Document Q&A App")
 st.markdown("Upload a text document (.txt) and ask questions about its content.")
 
 if 'vectorstore' not in st.session_state:
@@ -33,16 +33,15 @@ if uploaded_file is not None:
         with st.spinner("Processing document... This may take a moment."):
             loader = TextLoader(file_path)
             documents = loader.load()
-
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
             texts = text_splitter.split_documents(documents)
 
             embeddings = OpenAIEmbeddings()
-
             st.session_state.vectorstore = Chroma.from_documents(texts, embeddings)
 
             llm = ChatOpenAI(model="gpt-4.1-nano", temperature=0.3,api_key=openai_api_key)
 
+            # Rag chain
             st.session_state.qa_chain = RetrievalQA.from_chain_type(
                 llm=llm,
                 chain_type="stuff",
@@ -53,6 +52,7 @@ if uploaded_file is not None:
             if os.path.exists(file_path):
                 os.remove(file_path)
 else:
+    # Reset
     st.session_state.vectorstore = None
     st.session_state.qa_chain = None
     st.info("Please upload a document to begin.")
