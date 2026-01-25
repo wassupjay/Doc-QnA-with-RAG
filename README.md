@@ -1,6 +1,7 @@
 # 📄 Document Q&A with RAG
 
 A Streamlit web application that allows users to upload a text document and ask questions about its content using Retrieval-Augmented Generation (RAG) with LangChain and OpenAI.
+![Alt text](images/screenshot.png)
 
 ---
 
