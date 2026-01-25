@@ -7,12 +7,17 @@ from langchain.chains import RetrievalQA
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+# Use Streamlit secrets if available (cloud), otherwise .env (local)
+if "OPENAI_API_KEY" in st.secrets:
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
+else:
+    load_dotenv()
+    openai_api_key = os.getenv("OPENAI_API_KEY")
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = openai_api_key
 
 st.set_page_config(page_title="Document Q&A with RAG", layout="centered")
-st.title(" Document Q&A App")
+st.title("Document Q&A App")
 st.markdown("Upload a text document (.txt) and ask questions about its content.")
 
 if 'vectorstore' not in st.session_state:
@@ -39,7 +44,7 @@ if uploaded_file is not None:
             embeddings = OpenAIEmbeddings()
             st.session_state.vectorstore = Chroma.from_documents(texts, embeddings)
 
-            llm = ChatOpenAI(model="gpt-4.1-nano", temperature=0.3,api_key=openai_api_key)
+            llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.3, api_key=openai_api_key)
 
             # Rag chain
             st.session_state.qa_chain = RetrievalQA.from_chain_type(
